@@ -13,6 +13,9 @@ struct ContentView: View {
       @State var color = Color.red
       @State var text = ""
       @State var sliderVal: Float = 0.5
+      @State var photoSheetIsPresented = false
+      @State var image: UIImage?
+      
       var body: some View {
             
          
@@ -39,6 +42,23 @@ struct ContentView: View {
                   Slider(value: $sliderVal)
                   UISliderWithRepresentable(sliderVal: $sliderVal)
                   Text("\(sliderVal)")
+                  
+                  // PhotoLibrary
+                  Text("Photo Library")
+                  HStack {
+                        Button(action: {
+                              photoSheetIsPresented.toggle()
+                        }, label: {
+                              /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                        })
+                  }.sheet(isPresented: $photoSheetIsPresented, content: {
+                        UIPhotoLibraryWithRepresentable(isPresented: $photoSheetIsPresented, selectedImage: $image)
+                  })
+                  Image(uiImage: image ?? UIImage())
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                  
             }
       }
 }
@@ -174,3 +194,92 @@ struct UISliderWithRepresentable: UIViewRepresentable {
       
 }
 
+struct UIPhotoLibraryWithRepresentable: UIViewControllerRepresentable {
+      @Binding var isPresented: Bool
+      @Binding var selectedImage: UIImage?
+      
+      func makeUIViewController(context: Context) -> UIImagePickerController {
+            let picker = UIImagePickerController()
+            picker.delegate = context.coordinator
+            return picker
+      }
+      
+      func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+            
+      }
+      
+      func makeCoordinator() -> Coordinator {
+            Coordinator(self)
+      }
+      
+      class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+            let parent: UIPhotoLibraryWithRepresentable
+            
+            init(_ parent: UIPhotoLibraryWithRepresentable) {
+                  self.parent = parent
+            }
+            
+            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+                  if let image = info[.originalImage] as? UIImage {
+                        parent.selectedImage = image
+                  }
+                  
+                  parent.isPresented = false
+            }
+            
+            func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+                  parent.isPresented = false
+            }
+      }
+}
+
+struct <#GenericViewRepresentable#><View: UIView>: UIViewRepresentable {
+      // Add any properties you need to bind to
+      //@Binding var hello: String
+      
+      // Create the Coordinator
+      func makeCoordinator() -> Coordinator {
+            //            Coordinator(text: $hello, parent: self)
+            Coordinator(parent: self)
+      }
+      
+      // Create the UIView
+      func makeUIView(context: Context) -> View {
+            let view = View()
+            // Customize your view here
+            // For example, if View is a UITextField:
+            // view.delegate = context.coordinator
+            return view
+      }
+      
+      // Update the UIView
+      func updateUIView(_ uiView: View, context: Context) {
+            // Update your view here
+            // For example, if View is a UITextField:
+            // uiView.text = text
+      }
+      
+      // Define the Coordinator class
+      class Coordinator: NSObject {
+            // Remember to bind the properties again here
+            //            @Binding var text: String
+            
+            var parent: <#GenericViewRepresentable#>
+            
+            // initialize the bindings here
+            //            init(text: Binding<String>, parent: GenericViewRepresentable) {
+            //                  self._text = text
+            //                  self.parent = parent
+            //            }
+            
+            init(parent: <#GenericViewRepresentable#>) {
+                  self.parent = parent
+            }
+            
+            // Add any delegate methods you need
+            // For example, if View is a UITextField:
+            // func textFieldDidChangeSelection(_ textField: UITextField) {
+            //     text = textField.text ?? ""
+            // }
+      }
+}
