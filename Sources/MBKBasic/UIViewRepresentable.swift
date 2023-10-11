@@ -233,4 +233,53 @@ struct UIPhotoLibraryWithRepresentable: UIViewControllerRepresentable {
       }
 }
 
-
+struct <#GenericViewRepresentable#><View: UIView>: UIViewRepresentable {
+      // Add any properties you need to bind to
+      //@Binding var hello: String
+      
+      // Create the Coordinator
+      func makeCoordinator() -> Coordinator {
+            //            Coordinator(text: $hello, parent: self)
+            Coordinator(parent: self)
+      }
+      
+      // Create the UIView
+      func makeUIView(context: Context) -> View {
+            let view = View()
+            // Customize your view here
+            // For example, if View is a UITextField:
+            // view.delegate = context.coordinator
+            return view
+      }
+      
+      // Update the UIView
+      func updateUIView(_ uiView: View, context: Context) {
+            // Update your view here
+            // For example, if View is a UITextField:
+            // uiView.text = text
+      }
+      
+      // Define the Coordinator class
+      class Coordinator: NSObject {
+            // Remember to bind the properties again here
+            //            @Binding var text: String
+            
+            var parent: <#GenericViewRepresentable#>
+            
+            // initialize the bindings here
+            //            init(text: Binding<String>, parent: GenericViewRepresentable) {
+            //                  self._text = text
+            //                  self.parent = parent
+            //            }
+            
+            init(parent: <#GenericViewRepresentable#>) {
+                  self.parent = parent
+            }
+            
+            // Add any delegate methods you need
+            // For example, if View is a UITextField:
+            // func textFieldDidChangeSelection(_ textField: UITextField) {
+            //     text = textField.text ?? ""
+            // }
+      }
+}
