@@ -233,7 +233,7 @@ struct UIPhotoLibraryWithRepresentable: UIViewControllerRepresentable {
       }
 }
 
-struct <#GenericViewRepresentable#><View: UIView>: UIViewRepresentable {
+struct lort<View: UIView>: UIViewRepresentable {
       // Add any properties you need to bind to
       //@Binding var hello: String
       
@@ -264,7 +264,7 @@ struct <#GenericViewRepresentable#><View: UIView>: UIViewRepresentable {
             // Remember to bind the properties again here
             //            @Binding var text: String
             
-            var parent: <#GenericViewRepresentable#>
+            var parent: lort
             
             // initialize the bindings here
             //            init(text: Binding<String>, parent: GenericViewRepresentable) {
@@ -272,7 +272,7 @@ struct <#GenericViewRepresentable#><View: UIView>: UIViewRepresentable {
             //                  self.parent = parent
             //            }
             
-            init(parent: <#GenericViewRepresentable#>) {
+            init(parent: lort) {
                   self.parent = parent
             }
             

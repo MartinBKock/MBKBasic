@@ -4,23 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "MBKBasic",
-    platforms: [
-      .iOS(.v15)
-    ],
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "MBKBasic",
-            targets: ["MBKBasic"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "MBKBasic"),
-        .testTarget(
-            name: "MBKBasicTests",
-            dependencies: ["MBKBasic"]),
-    ]
+      name: "MBKBasic",
+      platforms: [
+            .iOS(.v15)
+      ],
+      products: [
+            .library(
+                  name: "MBKBasic",
+                  targets: ["MBKBasic"]),
+      ],
+      dependencies: [
+            .package(url: "https://github.com/MartinbKock/MBKBasic", from: "main"),
+      ],
+      targets: [
+            .target(
+                  name: "MBKBasic",
+                  dependencies: []),
+            .testTarget(
+                  name: "MBKBasicTests",
+                  dependencies: ["MBKBasic"]),
+      ]
 )
