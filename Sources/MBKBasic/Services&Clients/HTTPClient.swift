@@ -84,22 +84,22 @@ public class HTTPClient {
 }
 
 // MARK: - Models
-struct Parameter {
+public struct Parameter {
       let key: String
       let value: String
 }
 
-struct Parameters {
+public struct Parameters {
       let parameters: [Parameter]
 }
 
 extension Parameters {
-      func encode() -> Data {
+      public func encode() -> Data {
             let parameterArray = parameters.map { "\($0.key)=\($0.value)" }
             return parameterArray.joined(separator: "&").data(using: .utf8)!
       }
       
-      func toDictionary() -> [String: String] {
+      public func toDictionary() -> [String: String] {
             var dict = [String: String]()
             for param in parameters {
                   dict[param.key] = param.value
@@ -108,12 +108,12 @@ extension Parameters {
       }
 }
 
-struct HTTPHeader {
+public struct HTTPHeader {
       let field: String
       let value: String
 }
 
-struct HTTPHeaders {
+public struct HTTPHeaders {
       let headers: [HTTPHeader]
 }
 
