@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HTTPClient {
+public class HTTPClient {
       
       
       // MARK: - Private init
@@ -16,14 +16,14 @@ class HTTPClient {
       // MARK: - Private properties
       
       // MARK: - Public properties
-      enum typesOfRequest: String {
+     public enum typesOfRequest: String {
             case GET = "GET"
             case POST = "POST"
             case PUT = "PUT"
             case DELETE = "DELETE"
       }
       
-      enum NetworkError: Error {
+     public enum NetworkError: Error {
             case badURL
             case noData
             case decodingError
@@ -35,7 +35,7 @@ class HTTPClient {
       
       // MARK: - Public functions
       
-      static func request<U: Decodable>(urlString: String, method: typesOfRequest, parameters: Parameters? = nil, responseType: U.Type, header: HTTPHeaders? = nil, timeout: TimeInterval = 60.0) async throws -> U {
+     public static func request<U: Decodable>(urlString: String, method: typesOfRequest, parameters: Parameters? = nil, responseType: U.Type, header: HTTPHeaders? = nil, timeout: TimeInterval = 60.0) async throws -> U {
             var finalURLString = urlString
             
             if method == .GET, let parameters = parameters {
