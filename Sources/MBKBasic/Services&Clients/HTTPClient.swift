@@ -11,7 +11,7 @@ public class HTTPClient {
       
       
       // MARK: - Private init
-      private init() {}
+      public init() {}
       
       // MARK: - Private properties
       
