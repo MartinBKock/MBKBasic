@@ -87,10 +87,19 @@ public class HTTPClient {
 public struct Parameter {
       let key: String
       let value: String
+
+      public init(key: String, value: String) {
+            self.key = key
+            self.value = value
+      }
 }
 
 public struct Parameters {
       let parameters: [Parameter]
+
+      public init(parameters: [Parameter]) {
+            self.parameters = parameters
+      }
 }
 
 extension Parameters {
@@ -111,9 +120,18 @@ extension Parameters {
 public struct HTTPHeader {
       let field: String
       let value: String
+      
+      public init(field: String, value: String) {
+            self.field = field
+            self.value = value
+      }
 }
 
 public struct HTTPHeaders {
       let headers: [HTTPHeader]
+
+      public init(headers: [HTTPHeader]) {
+            self.headers = headers
+      }
 }
 
