@@ -13,13 +13,11 @@ let package = Package(
                   name: "MBKBasic",
                   targets: ["MBKBasic"]),
       ],
-      dependencies: [
-            .package(url: "https://github.com/MartinbKock/MBKBasic", from: "main"),
-      ],
+      dependencies: [],
       targets: [
             .target(
                   name: "MBKBasic",
-                  dependencies: []),
+                  dependencies: []), 
             .testTarget(
                   name: "MBKBasicTests",
                   dependencies: ["MBKBasic"]),

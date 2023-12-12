@@ -233,7 +233,7 @@ struct UIPhotoLibraryWithRepresentable: UIViewControllerRepresentable {
       }
 }
 
-struct lort<View: UIView>: UIViewRepresentable {
+struct UIViewRep<View: UIView>: UIViewRepresentable {
       // Add any properties you need to bind to
       //@Binding var hello: String
       
@@ -253,6 +253,8 @@ struct lort<View: UIView>: UIViewRepresentable {
       }
       
       // Update the UIView
+      // change _uiView: View to the view you are using
+      // like uiView: UITextField
       func updateUIView(_ uiView: View, context: Context) {
             // Update your view here
             // For example, if View is a UITextField:
@@ -264,7 +266,7 @@ struct lort<View: UIView>: UIViewRepresentable {
             // Remember to bind the properties again here
             //            @Binding var text: String
             
-            var parent: lort
+            var parent: UIViewRep
             
             // initialize the bindings here
             //            init(text: Binding<String>, parent: GenericViewRepresentable) {
@@ -272,7 +274,7 @@ struct lort<View: UIView>: UIViewRepresentable {
             //                  self.parent = parent
             //            }
             
-            init(parent: lort) {
+            init(parent: UIViewRep) {
                   self.parent = parent
             }
             
