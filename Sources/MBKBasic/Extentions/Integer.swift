@@ -47,6 +47,11 @@ extension Int {
                   return dateFormatter.string(from: date)
             }
       }
+
+      func epochToDate() -> Date {
+            let date = Date(timeIntervalSince1970: TimeInterval(self))
+            return date
+      }
       
       func checkIfEpochIsOlderThanSevenDays() -> Bool{
             let date = Date(timeIntervalSince1970: TimeInterval(self))
