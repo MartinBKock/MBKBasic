@@ -29,6 +29,16 @@ public class HTTPClient {
             case decodingError
             case timeout
       }
+    
+    public enum DecodingError: Error {
+            case KeynotFound
+            case TypeMismatch
+            case ValueNotFound
+            case TypeNotConformingToDecodable
+            case DataCorrupted
+
+        
+    }
       
       // MARK: - Private functions
       
