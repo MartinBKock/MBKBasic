@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "mbkerror",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MartinBKock/mbkError.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "418fa487ae388375f44d02daf85e87a9bf98822f"
+      }
+    }
+  ],
+  "version" : 2
+}

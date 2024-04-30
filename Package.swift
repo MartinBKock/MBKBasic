@@ -6,18 +6,20 @@ import PackageDescription
 let package = Package(
       name: "MBKBasic",
       platforms: [
-            .iOS(.v15)
+            .iOS(.v16)
       ],
       products: [
             .library(
                   name: "MBKBasic",
                   targets: ["MBKBasic"]),
       ],
-      dependencies: [],
+      dependencies: [
+        .package(url: "https://github.com/MartinBKock/mbkError.git", branch: "develop")
+      ],
       targets: [
             .target(
                   name: "MBKBasic",
-                  dependencies: []), 
+                  dependencies: [.product(name: "MBKError", package: "MBKError")]),
             .testTarget(
                   name: "MBKBasicTests",
                   dependencies: ["MBKBasic"]),
