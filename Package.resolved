@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b5c8945616aceab4c1afc96505314cb1a2947e7c"
+      }
+    },
+    {
       "identity" : "mbkerror",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MartinBKock/mbkError.git",
       "state" : {
         "branch" : "develop",
-        "revision" : "418fa487ae388375f44d02daf85e87a9bf98822f"
+        "revision" : "0d02e3bfc185764ec976302d071d3907427e6bcb"
       }
     }
   ],
