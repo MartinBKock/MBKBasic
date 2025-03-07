@@ -8,15 +8,6 @@
         "branch" : "master",
         "revision" : "b5c8945616aceab4c1afc96505314cb1a2947e7c"
       }
-    },
-    {
-      "identity" : "mbkerror",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MartinBKock/mbkError.git",
-      "state" : {
-        "branch" : "develop",
-        "revision" : "0d02e3bfc185764ec976302d071d3907427e6bcb"
-      }
     }
   ],
   "version" : 2
